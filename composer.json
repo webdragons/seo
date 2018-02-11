@@ -1,0 +1,26 @@
+{
+  "name": "bulldozer/seo",
+  "description": "Seo module",
+  "type": "yii2-extension",
+  "authors": [
+    {
+      "name": "lan143",
+      "email": "lan143@lan143.ru"
+    }
+  ],
+  "require": {
+    "bulldozer/bulldozer": "*",
+    "2amigos/yii2-ckeditor-widget": "^2.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "bulldozer\\seo\\": "src"
+    }
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ]
+}
