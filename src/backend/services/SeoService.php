@@ -39,6 +39,18 @@ class SeoService
 
     /**
      * @param ActiveRecord $entity
+     */
+    public function load(ActiveRecord $entity)
+    {
+        $seo = Seo::findOne(['entity' => $entity::tableName(), 'entity_id' => $entity->getPrimaryKey()]);
+
+        if ($seo) {
+            $this->form->setAttributes($seo->getAttributes($this->form->getSavedAttributes()));
+        }
+    }
+
+    /**
+     * @param ActiveRecord $entity
      * @return Seo|null
      * @throws SeoSaveException
      * @throws \yii\base\InvalidConfigException
@@ -50,6 +62,8 @@ class SeoService
         if ($seo === null) {
             $seo = App::createObject([
                 'class' => Seo::class,
+                'entity' => $entity::tableName(),
+                'entity_id' => $entity->getPrimaryKey(),
             ]);
         }
 
